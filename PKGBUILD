@@ -53,10 +53,13 @@ _pynextver="${_pymajver%.*}.$((
   "${_pyminver}" + 1))"
 _pkg=requirements-parser
 _setuptools="true"
-pkgname="${_py}-${_pkg}"
+pkgbase="${_py}-${_pkg}"
+pkgname=(
+  "${pkgbase}"
+)
 pkgver=0.13.1
 _commit="138dc9fdbd98d8cd74c2fbc8fa3d4e2a1047face"
-pkgrel=11
+pkgrel=12
 pkgdesc="A Pip requirements file parser."
 arch=(
   'any'
