@@ -144,18 +144,22 @@ jobs:
             -R \
             "o+x" \
             "${PREFIX}/bin"
-      # - name:
-      #     Installs bionic-libc NodeJS to force compatibility with actions/checkout and actions/upload-artifact.
-      #   run: |
-      #     /entrypoint.sh \
-      #       pkg \
-      #         install \
-      #           -y \
-      #           "nodejs-lts"
-      #     ln \
-      #       -sf \
-      #       "${PREFIX}/bin" \
-      #       "/__e/node20/bin"
+      - name:
+          Installs bionic-libc NodeJS to force compatibility with actions/checkout and actions/upload-artifact.
+        run: |
+          /entrypoint.sh \
+            pkg \
+              install \
+                -y \
+                "nodejs-lts"
+          ln \
+            -sf \
+            "${PREFIX}/bin" \
+            "/__e/node20/bin"
+          ln \
+            -sf \
+            "${PREFIX}/bin" \
+            "/__e/node24/bin"
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -1236,6 +1240,10 @@ jobs:
             -sf \
             "${PREFIX}/bin" \
             "/__e/node20/bin"
+          ln \
+            -sf \
+            "${PREFIX}/bin" \
+            "/__e/node24/bin"
       - name:
           Setups container.
         run: |
