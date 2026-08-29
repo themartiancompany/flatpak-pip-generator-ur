@@ -1178,9 +1178,9 @@ jobs:
             ${{ github.event.release.upload_url }}
             # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
-            "python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
-            "dogeos-android-python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "dogeos-android-flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
   arch_release:
@@ -1985,9 +1985,9 @@ jobs:
             ${{ github.event.release.upload_url }}
             # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
-            "python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
-            "dogeos-gnu-python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "dogeos-gnu-flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
   msys2_release:
@@ -2521,9 +2521,9 @@ jobs:
             ${{ github.event.release.upload_url }}
             # ${{ steps.create_release.outputs.upload_url }}
           asset_path:
-            "python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_name:
-            "dogeos-windows-python-requirements-parser-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
+            "dogeos-windows-flatpak-pip-generator-${{ steps.version.outputs.version }}-any.pkg.tar.xz"
           asset_content_type:
             application/gzip
 
