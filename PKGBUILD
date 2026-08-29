@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.0.1
 _commit="737c0085912f9f7dabf9341d4608e2a77a51a73a"
-pkgrel=5
+pkgrel=6
 _pkgdesc=(
   "Tool to automatically generate"
   "'flatpak-builder' manifest json from"
@@ -181,6 +181,6 @@ package() {
     "${pkgdir}/usr/bin"
   ln \
     -s \
-    "${_site_packages}/${_pkg}/${_pkg}" \
+    "${_site_packages}/${_pkg}/${_pkg}.py" \
     "${pkgdir}/usr/bin/${_pkg}"
 }
