@@ -1239,11 +1239,13 @@ jobs:
           ln \
             -sf \
             "${PREFIX}/bin" \
-            "/__e/node20/bin"
+            "/__e/node20/bin" \
+            true
           ln \
             -sf \
             "${PREFIX}/bin" \
-            "/__e/node24/bin"
+            "/__e/node24/bin" || \
+            true
       - name:
           Setups container.
         run: |
