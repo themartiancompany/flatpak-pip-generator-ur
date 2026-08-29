@@ -147,5 +147,3 @@ package() {
       --destdir="${pkgdir}" \
       "dist/"*".whl"
 }
-
-
