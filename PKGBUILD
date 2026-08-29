@@ -51,23 +51,28 @@ _pymajver="${_pyver%.*}"
 _pyminver="${_pymajver#*.}"
 _pynextver="${_pymajver%.*}.$((
   "${_pyminver}" + 1))"
-_pkg=requirements-parser
-_setuptools="true"
-pkgbase="${_py}-${_pkg}"
+_proj=flatpak-builder-tools
+_pkg=flatpak-pip-generator
+pkgbase="${_pkg}"
 pkgname=(
   "${pkgbase}"
 )
-pkgver=0.13.1
-_commit="138dc9fdbd98d8cd74c2fbc8fa3d4e2a1047face"
-pkgrel=19
-pkgdesc="A Pip requirements file parser."
+pkgver=0.0.1
+_commit="737c0085912f9f7dabf9341d4608e2a77a51a73a"
+pkgrel=1
+_pkgdesc=(
+  "Tool to automatically generate"
+  "'flatpak-builder' manifest json from"
+  "a pip package name."
+)
+pkgdesc="${_pkgdesc[*]}"
 arch=(
   'any'
 )
 _http="https://github.com"
-_ns="madpah"
+_ns="flatpak"
 _ns="themartiancompany"
-url="${_http}/${_ns}/${_pkg}"
+url="${_http}/${_ns}/${_proj}"
 license=(
   'Apache-2.0'
 )
@@ -75,26 +80,23 @@ depends=(
   "${_py}>=${_pymajver}"
   "${_py}<${_pynextver}"
   "${_py}-packaging"
+  "${_py}-requirements-parser"
 )
 makedepends=(
   "${_py}-build"
   "${_py}-installer"
-  "${_py}-poetry-core"
   "${_py}-wheel"
 )
 checkdepends=(
   "${_py}-pytest"
 )
-if [[ "${_ns}" == "madpah" ]]; then
-  _tag_name="tag"
-  _tag="${pkgver}"
-  _sum='0503638c426185abd5647df49e875dbb0051a5a295688321c69b74b373dc6b53'
-elif [[ "${_ns}" == "themartiancompany" ]]; then
-  _tag_name="commit"
-  _tag="${_commit}"
-  _sum="c5b67314bf62b45bf4cd3defbeef656d983c639470781b4a53dbca61b56d6686"
-  _sig_sum="2eb1d1996282311eb3712fec168022f16a4d4e94169721aba75cd554b72f1aee"
-fi
+provides=(
+  "${_py}-${_pkg}=${pkgver}"
+)
+_tag_name="commit"
+_tag="${_commit}"
+_sum="0437e60626d0dca6adac4d5307129519012b50cd1ce8caea6044a8525bfb71aa"
+_sig_sum="cd629f4090c47550675a6e475a1054c64f93f9633a5c3724e52faa74bf51d3e6"
 _url="${url}"
 if [[ "${_tag_name}" == "tag" ]]; then
   _archive_format="tar.gz"
@@ -115,7 +117,7 @@ sha256sums=(
 
 build() {
   cd \
-    "${_tarname}"
+    "${_tarname}/pip"
   GIT_DIR='.' \
   "${_py}" \
     -m \
@@ -126,7 +128,7 @@ build() {
 
 check() {
   cd \
-    "${_tarname}"
+    "${_tarname}/pip"
   "${_py}" \
     -m \
       "venv" \
@@ -146,7 +148,7 @@ check() {
 
 package() {
   cd \
-    "${_tarname}"
+    "${_tarname}/pip"
   "${_py}" \
     -m \
       "installer" \

@@ -19,7 +19,7 @@
 [comment]: <> (See the GNU Affero General Public License)
 [comment]: <> (for more details.)
 
-# `python-requirements-parser`
+# `flatpak-pip-generator`
 
 universal recipe for
 [user repo](
