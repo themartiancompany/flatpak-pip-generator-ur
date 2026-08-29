@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.0.1
 _commit="737c0085912f9f7dabf9341d4608e2a77a51a73a"
-pkgrel=1
+pkgrel=2
 _pkgdesc=(
   "Tool to automatically generate"
   "'flatpak-builder' manifest json from"
@@ -105,7 +105,7 @@ elif [[ "${_tag_name}" == "commit" ]]; then
   _archive_format="zip"
   _uri="${_url}/archive/${_commit}.${_archive_format}"
 fi
-_tarname="${_pkg}-${_tag}"
+_tarname="${_proj}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
 _src="${_tarfile}::${_uri}"
 source=(
