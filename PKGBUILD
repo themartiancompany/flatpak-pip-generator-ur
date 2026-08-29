@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.0.1
 _commit="737c0085912f9f7dabf9341d4608e2a77a51a73a"
-pkgrel=4
+pkgrel=5
 _pkgdesc=(
   "Tool to automatically generate"
   "'flatpak-builder' manifest json from"
@@ -174,8 +174,11 @@ package() {
   # is actually needed.
   install \
     -vDm755 \
-    "${_pkg}" \
-    "${pkgdir}${_site_packages}/${_pkg}/${_pkg}"
+    "${_pkg}.py" \
+    "${pkgdir}${_site_packages}/${_pkg}/${_pkg}.py"
+  install \
+    -vdm755 \
+    "${pkgdir}/usr/bin"
   ln \
     -s \
     "${_site_packages}/${_pkg}/${_pkg}" \
