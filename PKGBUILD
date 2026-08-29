@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.0.1
 _commit="737c0085912f9f7dabf9341d4608e2a77a51a73a"
-pkgrel=2
+pkgrel=3
 _pkgdesc=(
   "Tool to automatically generate"
   "'flatpak-builder' manifest json from"
@@ -86,6 +86,7 @@ makedepends=(
   "${_py}-build"
   "${_py}-installer"
   "${_py}-wheel"
+  "${_py}-setuptools"
 )
 checkdepends=(
   "${_py}-pytest"
