@@ -148,6 +148,19 @@ check() {
 }
 
 package() {
+  local \
+    _site_packages \
+    _site_packages_cmd=()
+  _site_packages_cmd=(
+    "import site;"
+    "print("
+      "site.getsitepackages()[0]"
+    ")"
+  )
+  _site_packages=$( \
+    "${_py}" \
+      -c \
+        "${_site_packages_cmd[*]}")
   cd \
     "${_tarname}/pip"
   "${_py}" \
@@ -155,4 +168,16 @@ package() {
       "installer" \
       --destdir="${pkgdir}" \
       "dist/"*".whl"
+  # Looks like the python package only
+  # produces metadata and placing the
+  # script at right location manually
+  # is actually needed.
+  install \
+    -vDm755 \
+    "${_pkg}" \
+    "${pkgdir}${_site_packages}/${_pkg}/${_pkg}"
+  ln \
+    -s \
+    "${_site_packages}/${_pkg}/${_pkg}" \
+    "${pkgdir}/usr/bin/${_pkg}"
 }
