@@ -155,11 +155,13 @@ jobs:
           ln \
             -sf \
             "${PREFIX}/bin" \
-            "/__e/node20/bin"
+            "/__e/node20/bin" || \
+            true
           ln \
             -sf \
             "${PREFIX}/bin" \
-            "/__e/node24/bin"
+            "/__e/node24/bin" || \
+            true
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -1239,7 +1241,7 @@ jobs:
           ln \
             -sf \
             "${PREFIX}/bin" \
-            "/__e/node20/bin" \
+            "/__e/node20/bin" || \
             true
           ln \
             -sf \
