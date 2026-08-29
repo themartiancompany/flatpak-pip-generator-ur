@@ -1266,6 +1266,7 @@ jobs:
             "python-docutils" \
             "python-pip" \
             "python-build" \
+            "python-poetry-core" \
             "tree" \
             "unzip"
       - uses:
