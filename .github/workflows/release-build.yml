@@ -157,7 +157,7 @@ jobs:
             "${PREFIX}/bin" \
             "/__e/node20/bin"
       - uses:
-          actions/checkout@v4.2.2
+          actions/checkout@v7.0.1
       - name:
           Fixes permissions of repository after actions/checkout, which ran as root user, while entrypoint.sh activates system user (1000).
         run: |
@@ -753,7 +753,7 @@ jobs:
               "coreutils" || \
             true
       - uses:
-          actions/checkout@v4.2.2
+          actions/checkout@v7.0.1
       - name:
           Installs EVM Chains Info.
         run: |
@@ -1252,7 +1252,7 @@ jobs:
             "tree" \
             "unzip"
       - uses:
-          actions/checkout@v4.2.2
+          actions/checkout@v7.0.1
       - name:
           Fixes executable bit for all binaries in "${PREFIX}/bin" for all users.
         run: |
@@ -2206,7 +2206,7 @@ jobs:
                 "core.autocrlf" \
                 "false"
       - uses:
-          actions/checkout@v3
+          actions/checkout@v7.0.1
       - name:
           Installs recent EVM GNUPG.
         env:
@@ -2539,7 +2539,7 @@ jobs:
               install \
                 "setuptools"
       - uses:
-          actions/checkout@v3.3.0
+          actions/checkout@v7.0.1
       - name:
           Builds the package.
         run:
