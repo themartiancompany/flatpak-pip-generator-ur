@@ -163,7 +163,7 @@ jobs:
             "/__e/node24/bin" || \
             true
       - uses:
-          actions/setup-node@v3
+          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -761,7 +761,7 @@ jobs:
               "coreutils" || \
             true
       - uses:
-          actions/setup-node@v3
+          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -1268,7 +1268,7 @@ jobs:
             "tree" \
             "unzip"
       - uses:
-          actions/setup-node@v3
+          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -2224,7 +2224,7 @@ jobs:
                 "core.autocrlf" \
                 "false"
       - uses:
-          actions/setup-node@v3
+          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
@@ -2559,7 +2559,7 @@ jobs:
               install \
                 "setuptools"
       - uses:
-          actions/setup-node@v3
+          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
