@@ -769,46 +769,46 @@ jobs:
           actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
-      - name:
-          Installs EVM Chains Info.
-        run: |
-          /entrypoint.sh \
-            platform-get \
-            -v
-          cat \
-            "/entrypoint.sh"
-          which \
-            "fur"
-          /entrypoint.sh \
-            fur \
-              -v \
-              -h
-          $(which \
-              "fur") \
-            -v \
-            -h || \
-          true
-          /entrypoint.sh \
-            fur \
-              -v \
-              -p \
-                "pacman" \
-              -m \
-                "github" \
-              -t \
-                "tree" \
-              -T \
-              "evm-chains-info" || \
-            true
-      - name:
-          Installs EVM Chains Explorers.
-        run: |
-          /entrypoint.sh \
-            fur \
-              -v \
-              -p \
-                "pacman" \
-              "evm-chains-explorers"
+      # - name:
+      #     Installs EVM Chains Info.
+      #   run: |
+      #     /entrypoint.sh \
+      #       platform-get \
+      #       -v
+      #     cat \
+      #       "/entrypoint.sh"
+      #     which \
+      #       "fur"
+      #     /entrypoint.sh \
+      #       fur \
+      #         -v \
+      #         -h
+      #     $(which \
+      #         "fur") \
+      #       -v \
+      #       -h || \
+      #     true
+      #     /entrypoint.sh \
+      #       fur \
+      #         -v \
+      #         -p \
+      #           "pacman" \
+      #         -m \
+      #           "github" \
+      #         -t \
+      #           "tree" \
+      #         -T \
+      #         "evm-chains-info" || \
+      #       true
+      # - name:
+      #     Installs EVM Chains Explorers.
+      #   run: |
+      #     /entrypoint.sh \
+      #       fur \
+      #         -v \
+      #         -p \
+      #           "pacman" \
+      #         "evm-chains-explorers"
       # - name:
       #     Installs EVM Contracts Tools.
       #   run: |
@@ -988,64 +988,64 @@ jobs:
                 recipe-get \
                   "PKGBUILD" \
                   "pkgname")"
-      - name:
-          Installs build dependencies.
-        env:
-          GH_TOKEN:
-            ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          _evmfs="false" \
-            recipe-get \
-              -v \
-              -o \
-                "array" \
-              -d \
-                " " \
-              "PKGBUILD" \
-              "makedepends"
-          _evmfs="false" \
-            recipe-get \
-              -o \
-                "array" \
-              -d \
-                " " \
-              "PKGBUILD" \
-              "makedepends" > \
-            "${HOME}/makedepends"
-          for _pkg in $(cat "${HOME}/makedepends"); do \
-            _depend_name="$( \
-              /entrypoint.sh \
-                version-split \
-                  "${_pkg}" \
-                  "name")"
-            SHELL="bash" \
-            /entrypoint.sh \
-              pacman \
-                --verbose \
-                -S \
-                  --noconfirm \
-                  "${_depend_name}" \
-                  --overwrite="*" || \
-                true
-          done
-          for _pkg in $(cat "${HOME}/makedepends"); do \
-            _depend_name="$( \
-              /entrypoint.sh \
-                version-split \
-                  "${_pkg}" \
-                  "name")"
-            /entrypoint.sh \
-              fur \
-                -v \
-                -t \
-                  "ci" \
-                -m \
-                  "github" \
-                -p \
-                  "pacman" \
-                "${_pkg}" || \
-              true
-          done
+      # - name:
+      #     Installs build dependencies.
+      #   env:
+      #     GH_TOKEN:
+      #       ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     _evmfs="false" \
+      #       recipe-get \
+      #         -v \
+      #         -o \
+      #           "array" \
+      #         -d \
+      #           " " \
+      #         "PKGBUILD" \
+      #         "makedepends"
+      #     _evmfs="false" \
+      #       recipe-get \
+      #         -o \
+      #           "array" \
+      #         -d \
+      #           " " \
+      #         "PKGBUILD" \
+      #         "makedepends" > \
+      #       "${HOME}/makedepends"
+      #     for _pkg in $(cat "${HOME}/makedepends"); do \
+      #       _depend_name="$( \
+      #         /entrypoint.sh \
+      #           version-split \
+      #             "${_pkg}" \
+      #             "name")"
+      #       SHELL="bash" \
+      #       /entrypoint.sh \
+      #         pacman \
+      #           --verbose \
+      #           -S \
+      #             --noconfirm \
+      #             "${_depend_name}" \
+      #             --overwrite="*" || \
+      #           true
+      #     done
+      #     for _pkg in $(cat "${HOME}/makedepends"); do \
+      #       _depend_name="$( \
+      #         /entrypoint.sh \
+      #           version-split \
+      #             "${_pkg}" \
+      #             "name")"
+      #       /entrypoint.sh \
+      #         fur \
+      #           -v \
+      #           -t \
+      #             "ci" \
+      #           -m \
+      #             "github" \
+      #           -p \
+      #             "pacman" \
+      #           "${_pkg}" || \
+      #         true
+      #     done
       - name:
           Builds the Android package.
         run: |
