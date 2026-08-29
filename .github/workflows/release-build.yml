@@ -229,6 +229,10 @@ jobs:
             pip \
               install \
                 "pygments"
+          /entrypoint.sh \
+            pip \
+              install \
+                "poetry-core"
       # - name:
       #     Installs Rust.
       #   run: |

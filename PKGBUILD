@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.13.1
 _commit="138dc9fdbd98d8cd74c2fbc8fa3d4e2a1047face"
-pkgrel=17
+pkgrel=18
 pkgdesc="A Pip requirements file parser."
 arch=(
   'any'
