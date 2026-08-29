@@ -90,6 +90,7 @@ jobs:
         termux/termux-docker:${{ matrix.architecture }}
       volumes: 
         - /tmp/node20:/__e/node20
+        - /tmp/node20:/__e/node24
     # approximate environment variables for actions that can't be forced to use entrypoint.sh
     env:
       GH_TOKEN:
@@ -162,8 +163,6 @@ jobs:
             "${PREFIX}/bin" \
             "/__e/node24/bin" || \
             true
-      - uses:
-          actions/setup-node@v5
       - uses:
           actions/checkout@v7.0.1
       - name:
