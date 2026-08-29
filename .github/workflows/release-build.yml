@@ -300,6 +300,8 @@ jobs:
           /entrypoint.sh \
             pacman-key \
               --init
+          /entrypoint.sh \
+            pacman-db-upgrade
       - name:
           Installs 'build essential' ahah.
         run: |
