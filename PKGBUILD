@@ -59,7 +59,7 @@ pkgname=(
 )
 pkgver=0.13.1
 _commit="138dc9fdbd98d8cd74c2fbc8fa3d4e2a1047face"
-pkgrel=13
+pkgrel=14
 pkgdesc="A Pip requirements file parser."
 arch=(
   'any'
@@ -92,7 +92,8 @@ if [[ "${_ns}" == "madpah" ]]; then
 elif [[ "${_ns}" == "themartiancompany" ]]; then
   _tag_name="commit"
   _tag="${_commit}"
-  _sum="boh"
+  _sum="c5b67314bf62b45bf4cd3defbeef656d983c639470781b4a53dbca61b56d6686"
+  _sig_sum="2eb1d1996282311eb3712fec168022f16a4d4e94169721aba75cd554b72f1aee"
 fi
 _url="${url}"
 if [[ "${_tag_name}" == "tag" ]]; then
